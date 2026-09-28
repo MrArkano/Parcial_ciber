@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  score     Int      @default(0)
+  solved    Int      @default(0)
+  completed String   @default("[]")
+  createdAt DateTime @default(now())
+}
